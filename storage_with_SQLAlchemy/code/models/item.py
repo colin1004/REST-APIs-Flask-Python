@@ -1,6 +1,14 @@
 import sqlite3
+from db import db
 
-class ItemModel:
+class ItemModel(db.Model):
+    # orm table set
+    __tablename__ = 'items'
+    # orm property set
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80))
+    price = db.Column(db.Float(precision=2))
+
     def __init__(self, name, price):
         self.name = name
         self.price = price
@@ -31,7 +39,7 @@ class ItemModel:
         connection.commit()
         connection.close()
 
-    def update(cls,item):
+    def update(self):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 

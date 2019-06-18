@@ -1,8 +1,16 @@
 import sqlite3
-
+import db from db
 # resource is external representation of Entity
 # model is internal representation of Entity
-class UserModel:
+# extend db.Model for orm 
+class UserModel(db.Model):
+    # orm table set
+    __tablename__ = 'users'
+    # orm property set
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80))
+    password = db.Column(db.String(80))
+
     def __init__(self, _id, username, password):
         self.id = _id
         self.username = username
