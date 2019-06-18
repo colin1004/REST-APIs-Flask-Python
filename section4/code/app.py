@@ -3,6 +3,7 @@ from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 
 from security import authenticate, identity
+from user import UserRegister
 
 app = Flask(__name__)
 app.secret_key = 'asdfghjkl123'
@@ -31,7 +32,7 @@ class Item(Resource):
             return {'message': 'An item with name "{}" already exists.'.format(name)}, 400
 
         data = Item.parser.parse_args()
-        
+
         item = {'name': name, 'price': data['price']}
         items.append(item)
         return item, 201
@@ -60,5 +61,6 @@ class ItemList(Resource):
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList,'/items')
+api.add_resource(UserRegister, '/register')
 
 app.run(port=5000, debug=True)
