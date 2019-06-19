@@ -7,7 +7,7 @@ class UserModel(db.Model):
     # orm table set
     __tablename__ = 'users'
     # orm property set
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True) # automatic assign new id
     username = db.Column(db.String(80))
     password = db.Column(db.String(80))
 
