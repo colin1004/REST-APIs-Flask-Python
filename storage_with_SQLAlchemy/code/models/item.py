@@ -4,7 +4,7 @@ class ItemModel(db.Model):
     # orm table set
     __tablename__ = 'items'
     # orm property set
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True) # automatic assign new id 
     name = db.Column(db.String(80))
     price = db.Column(db.Float(precision=2))
 
