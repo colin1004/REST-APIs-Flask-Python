@@ -1,8 +1,8 @@
 import sqlite3
-import db from db
+from db import db
 # resource is external representation of Entity
 # model is internal representation of Entity
-# extend db.Model for orm 
+# extend db.Model for orm
 class UserModel(db.Model):
     # orm table set
     __tablename__ = 'users'
